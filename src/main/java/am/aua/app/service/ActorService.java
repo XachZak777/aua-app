@@ -6,8 +6,6 @@ import am.aua.app.exception.ActorException;
 import am.aua.app.repository.ActorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.net.URI;
 import java.util.List;
 
 @Service
@@ -16,18 +14,17 @@ public class ActorService {
 
     private final ActorRepository actorRepository;
 
-
-    public List<Actor> findAllActors() {
+    public List<Actor> findAllActors () {
         return actorRepository.findAll();
     }
 
-    public Actor getActorById(Integer actorId){
+    public Actor getActorById (Integer actorId){
         return actorRepository.findActorById(actorId).orElseThrow(() ->
                 new ActorException("Actor not found")
         );
     }
 
-    public Actor createActor(ActorRequest actorRequest) {
+    public Actor createActor (ActorRequest actorRequest) {
         var savedActor = actorRepository.save(
                 Actor.builder()
                         .actorFirstName(actorRequest.getActorFirstName())
@@ -37,5 +34,4 @@ public class ActorService {
         );
         return savedActor;
     }
-
 }
