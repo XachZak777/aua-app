@@ -1,9 +1,6 @@
 package am.aua.app.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -30,6 +27,6 @@ public class Author {
     private String biography;
 
     @Column(name = "author_role", columnDefinition = "author_role_type not null")
-    private Object authorRole;
-
+    @Enumerated(EnumType.STRING)
+    private AuthorRoleType authorRole;
 }
