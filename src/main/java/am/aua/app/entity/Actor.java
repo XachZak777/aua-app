@@ -7,8 +7,8 @@ import lombok.*;
 @Table(name = "actors")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Actor {
 

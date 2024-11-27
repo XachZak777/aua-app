@@ -1,11 +1,10 @@
 package am.aua.app.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.databind.annotation.EnumNaming;
+import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.dialect.PostgreSQLEnumJdbcType;
 
 import java.time.LocalDate;
 
@@ -18,7 +17,8 @@ import java.time.LocalDate;
 @Builder
 public class User {
     @Id
-    @ColumnDefault("nextval('users_user_id_seq'::regclass)")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_gen")
+    @SequenceGenerator(name = "users_id_gen", sequenceName = "users_user_id_seq", allocationSize = 1)
     @Column(name = "user_id", nullable = false)
     private Integer id;
 
@@ -40,6 +40,8 @@ public class User {
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = false;
 
-    @Column(name = "status", columnDefinition = "status_type not null")
-    private Object status;
+
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private StatusType status;
 }

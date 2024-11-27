@@ -21,7 +21,14 @@ public class UserController {
     }
 
     @PostMapping("/createUser")
-    public ResponseEntity<User> createUser (@RequestBody UserRequest userRequest) {
-        return ResponseEntity.ok(userService.createUser(userRequest));
+    public ResponseEntity<?> createUser(@RequestBody UserRequest userRequest) {
+        try {
+            // Call service method to create the user
+            User createdUser = userService.createUser(userRequest);
+            return ResponseEntity.ok(createdUser);
+        } catch (Exception ex) {
+            // Log the error and return a meaningful message
+            return ResponseEntity.status(400).body("Error creating user: " + ex.getMessage());
+        }
     }
 }

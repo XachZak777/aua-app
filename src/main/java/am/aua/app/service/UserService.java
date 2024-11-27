@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public User getUserById (Integer userId) {
-        return userRepository.findUserByID(userId).orElseThrow(() ->
+        return userRepository.findUserById(userId).orElseThrow(() ->
                 new UserException("User not found!")
         );
     }
@@ -27,14 +27,13 @@ public class UserService {
     public User createUser(UserRequest userRequest) {
         var savedUser = userRepository.save(
                 User.builder()
-                        .id(userRequest.getUserId())
                         .firstName(userRequest.getFirstName())
                         .lastName(userRequest.getLastName())
                         .email(userRequest.getEmail())
-                        .status(userRequest.getStatus())
-                        .isActive(userRequest.getIsActive())
                         .passkey(userRequest.getPasskey())
                         .createdAt(userRequest.getCreatedAt())
+                        .status(userRequest.getStatus())
+                        .isActive(userRequest.getIsActive())
                         .build()
         );
         return savedUser;

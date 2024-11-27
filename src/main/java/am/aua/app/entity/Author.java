@@ -31,4 +31,5 @@ public class Author {
 
     @Column(name = "author_role", columnDefinition = "author_role_type not null")
     private Object authorRole;
+
 }
