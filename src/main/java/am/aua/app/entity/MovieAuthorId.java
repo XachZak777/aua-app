@@ -3,7 +3,6 @@ package am.aua.app.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import org.hibernate.Hibernate;
-
 import java.util.Objects;
 
 @Embeddable

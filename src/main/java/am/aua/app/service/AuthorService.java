@@ -1,11 +1,8 @@
 package am.aua.app.service;
 
 import am.aua.app.dto.AuthorRequest;
-import am.aua.app.dto.UserRequest;
 import am.aua.app.entity.Author;
-import am.aua.app.entity.User;
 import am.aua.app.exception.AuthorException;
-import am.aua.app.exception.UserException;
 import am.aua.app.repository.AuthorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
