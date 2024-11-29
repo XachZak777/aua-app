@@ -19,12 +19,6 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
-    public Author getAuthorById (Integer authorId) {
-        return authorRepository.findAuthorById(authorId).orElseThrow(() ->
-                new AuthorNotFoundException("Author not found!")
-        );
-    }
-
     public Author createAuthor(AuthorRequest authorRequest) {
         var savedAuthor = authorRepository.save(
                 Author.builder()

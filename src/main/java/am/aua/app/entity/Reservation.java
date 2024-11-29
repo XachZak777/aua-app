@@ -23,7 +23,7 @@ public class Reservation {
     @JoinColumn(name = "screening_id")
     private Screening screening;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 

@@ -1,5 +1,6 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.MembershipType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -12,6 +13,7 @@ import org.hibernate.annotations.ColumnDefault;
 @AllArgsConstructor
 @Builder
 public class Customer {
+
     @Id
     @ColumnDefault("nextval('customers_customer_id_seq'::regclass)")
     @Column(name = "customer_id", nullable = false)
@@ -25,6 +27,6 @@ public class Customer {
     private String preferences;
 
     @Column(name = "membership_level", columnDefinition = "membership_type not null")
-    private Object membershipLevel;
-
+    @Enumerated(EnumType.STRING)
+    private MembershipType membershipLevel;
 }

@@ -1,7 +1,6 @@
 package am.aua.app.dto;
 
-import am.aua.app.entity.StatusType;
-import jakarta.persistence.Column;
+import am.aua.app.entity.enums.StatusType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

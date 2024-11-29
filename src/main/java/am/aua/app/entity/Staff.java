@@ -25,6 +25,7 @@ public class Staff {
 
     @Column(name = "hire_date", nullable = false)
     private LocalDate hireDate;
+
     @Column(name = "permissions", nullable = false, length = Integer.MAX_VALUE)
     private String permissions;
 

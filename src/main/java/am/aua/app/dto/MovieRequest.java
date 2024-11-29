@@ -1,6 +1,6 @@
 package am.aua.app.dto;
 
-import am.aua.app.entity.GenreType;
+import am.aua.app.entity.enums.GenreType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

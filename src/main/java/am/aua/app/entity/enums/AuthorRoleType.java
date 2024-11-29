@@ -1,4 +1,4 @@
-package am.aua.app.entity;
+package am.aua.app.entity.enums;
 
 public enum AuthorRoleType {
     director,

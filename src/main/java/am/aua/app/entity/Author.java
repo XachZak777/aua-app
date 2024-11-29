@@ -1,5 +1,6 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.AuthorRoleType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;

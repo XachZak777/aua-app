@@ -1,8 +1,8 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.GenreType;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
