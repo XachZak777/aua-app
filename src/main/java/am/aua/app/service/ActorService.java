@@ -2,7 +2,7 @@ package am.aua.app.service;
 
 import am.aua.app.dto.ActorRequest;
 import am.aua.app.entity.Actor;
-import am.aua.app.exception.ActorException;
+import am.aua.app.exception.ActorNotFoundException;
 import am.aua.app.repository.ActorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class ActorService {
 
     public Actor getActorById (Integer actorId){
         return actorRepository.findActorById(actorId).orElseThrow(() ->
-                new ActorException("Actor not found")
+                new ActorNotFoundException("Actor not found")
         );
     }
 
@@ -33,5 +33,16 @@ public class ActorService {
                         .build()
         );
         return savedActor;
+    }
+
+    public Actor findActorById(Integer id) {
+        return  actorRepository.findActorById(id).orElseThrow(() ->
+                new ActorNotFoundException("No actor found")
+        );
+    }
+
+    public void deleteActorById (Integer id) {
+        Actor actor = actorRepository.findActorById(id).orElseThrow(() -> new ActorNotFoundException("Actor not found!"));
+        actorRepository.deleteById(id);
     }
 }

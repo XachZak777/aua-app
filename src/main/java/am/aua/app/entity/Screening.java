@@ -19,7 +19,7 @@ public class Screening {
     @Column(name = "screening_id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
     @JoinColumn(name = "movie_id")
     private Movie movie;
 

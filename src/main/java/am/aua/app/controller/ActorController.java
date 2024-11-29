@@ -9,19 +9,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/actor")
 @RequiredArgsConstructor
 public class ActorController {
 
     private final ActorService actorService;
 
-    @GetMapping("/findAllActors")
-    public ResponseEntity<List<Actor>> findAllActors(){
+    @GetMapping("/all")
+    public ResponseEntity<List<Actor>> findAllActors () {
        return ResponseEntity.ok(actorService.findAllActors());
     }
 
-    @PostMapping("/createActor")
-    public ResponseEntity<Actor> createActor(@RequestBody ActorRequest actorRequest){
+    @GetMapping("/{id}")
+    public ResponseEntity<Actor> findActorById (@PathVariable Integer id) {
+        return ResponseEntity.ok(actorService.findActorById(id));
+    }
+
+    @PostMapping()
+    public ResponseEntity<Actor> createActor (@RequestBody ActorRequest actorRequest) {
         return ResponseEntity.ok(actorService.createActor(actorRequest));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteActor (@PathVariable("id") Integer id) {
+        actorService.deleteActorById(id);
+        return ResponseEntity.ok(String.format("Actor with %s id is not found", id));
     }
 }

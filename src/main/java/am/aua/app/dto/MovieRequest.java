@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,4 +21,5 @@ public class MovieRequest {
     private LocalDate releaseDate;
     private BigDecimal rating;
     private GenreType genre;
+
 }

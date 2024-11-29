@@ -2,7 +2,7 @@ package am.aua.app.service;
 
 import am.aua.app.dto.AuthorRequest;
 import am.aua.app.entity.Author;
-import am.aua.app.exception.AuthorException;
+import am.aua.app.exception.AuthorNotFoundException;
 import am.aua.app.repository.AuthorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class AuthorService {
 
     public Author getAuthorById (Integer authorId) {
         return authorRepository.findAuthorById(authorId).orElseThrow(() ->
-                new AuthorException("Author not found!")
+                new AuthorNotFoundException("Author not found!")
         );
     }
 
@@ -37,4 +37,14 @@ public class AuthorService {
         return savedAuthor;
     }
 
+    public Author findAuthorById(Integer id) {
+        return  authorRepository.findAuthorById(id).orElseThrow(() ->
+                new AuthorNotFoundException("No author found")
+        );
+    }
+
+    public void deleteAuthorById (Integer id) {
+        Author author = authorRepository.findAuthorById(id).orElseThrow(() -> new AuthorNotFoundException("Author not found!"));
+        authorRepository.deleteById(id);
+    }
 }

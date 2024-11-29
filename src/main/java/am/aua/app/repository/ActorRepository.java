@@ -7,5 +7,4 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 
     Optional<Actor> findActorById(Integer id);
     Actor save(Actor actor);
-
 }

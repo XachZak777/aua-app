@@ -17,7 +17,7 @@ public class Customer {
     @Column(name = "customer_id", nullable = false)
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
     private User user;
 

@@ -15,12 +15,12 @@ public class MovieAuthor {
     private MovieAuthorId id;
 
     @MapsId("movieId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade=CascadeType.REMOVE)
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 
     @MapsId("authorId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade=CascadeType.REMOVE)
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 

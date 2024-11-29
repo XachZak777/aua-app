@@ -1,11 +1,6 @@
 package am.aua.app.entity;
-
-import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.JdbcType;
-import org.hibernate.dialect.PostgreSQLEnumJdbcType;
-
 import java.time.LocalDate;
 
 @Entity

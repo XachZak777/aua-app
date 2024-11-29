@@ -2,7 +2,7 @@ package am.aua.app.service;
 
 import am.aua.app.dto.UserRequest;
 import am.aua.app.entity.User;
-import am.aua.app.exception.UserException;
+import am.aua.app.exception.UserNotFoundException;
 import am.aua.app.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,9 +18,15 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User findUserById (Integer userId) {
+        return userRepository.findUserById(userId).orElseThrow(() ->
+                new UserNotFoundException("User not found!")
+        );
+    }
+
     public User getUserById (Integer userId) {
         return userRepository.findUserById(userId).orElseThrow(() ->
-                new UserException("User not found!")
+                new UserNotFoundException("User not found!")
         );
     }
 
@@ -37,5 +43,10 @@ public class UserService {
                         .build()
         );
         return savedUser;
+    }
+
+    public void deleteUserById (Integer id) {
+        User user = userRepository.findUserById(id).orElseThrow(() -> new UserNotFoundException("User not found!"));
+        userRepository.deleteById(id);
     }
 }

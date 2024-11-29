@@ -1,8 +1,10 @@
 package am.aua.app.service;
 
 import am.aua.app.dto.MovieRequest;
+import am.aua.app.entity.Actor;
 import am.aua.app.entity.Movie;
-import am.aua.app.exception.MovieException;
+import am.aua.app.exception.ActorNotFoundException;
+import am.aua.app.exception.MovieNotFoundException;
 import am.aua.app.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ public class MovieService {
 
     public Movie findMovieById (Integer movieId) {
         return movieRepository.findMovieById(movieId).orElseThrow(() ->
-                new MovieException("Movie not found!")
+                new MovieNotFoundException("Movie not found!")
         );
     }
 
@@ -37,5 +39,10 @@ public class MovieService {
                         .build()
         );
         return savedMovie;
+    }
+
+    public void deleteMovieById (Integer id) {
+        Movie movie = movieRepository.findMovieById(id).orElseThrow(() -> new MovieNotFoundException("Movie not found!"));
+        movieRepository.deleteById(id);
     }
 }
