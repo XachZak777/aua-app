@@ -1,9 +1,10 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.PaymentMethod;
+import am.aua.app.entity.enums.RefundStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-
 import java.time.Instant;
 
 @Entity
@@ -30,9 +31,11 @@ public class Payment {
     private Instant paymentDate;
 
     @Column(name = "payment_method", columnDefinition = "payment_method_type not null")
-    private Object paymentMethod;
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod;
 
     @Column(name = "refund_status", columnDefinition = "refund_status_type not null")
-    private Object refundStatus;
+    @Enumerated(EnumType.STRING)
+    private RefundStatus refundStatus;
 
 }

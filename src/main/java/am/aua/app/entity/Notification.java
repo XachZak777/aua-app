@@ -1,5 +1,6 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.MessageType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -19,7 +20,7 @@ public class Notification {
     @Column(name = "notification_id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
@@ -30,5 +31,6 @@ public class Notification {
     private Instant sentAt;
 
     @Column(name = "message_type", columnDefinition = "message_type not null")
-    private Object messageType;
+    @Enumerated(EnumType.STRING)
+    private MessageType messageType;
 }

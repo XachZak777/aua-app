@@ -1,9 +1,8 @@
 package am.aua.app.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import am.aua.app.entity.enums.HallFeaturesType;
+import am.aua.app.entity.enums.HallStatusType;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -27,9 +26,11 @@ public class MovieHall {
     private Integer capacity;
 
     @Column(name = "hall_status", columnDefinition = "hall_status_type not null")
-    private Object hallStatus;
+    @Enumerated(EnumType.STRING)
+    private HallStatusType hallStatus;
 
     @Column(name = "features", columnDefinition = "hall_features_type not null")
-    private Object features;
+    @Enumerated(EnumType.STRING)
+    private HallFeaturesType features;
 
 }
