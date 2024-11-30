@@ -1,7 +1,6 @@
 package am.aua.app.service;
 
 import am.aua.app.dto.PaymentRequest;
-import am.aua.app.entity.Notification;
 import am.aua.app.entity.Payment;
 import am.aua.app.exception.PaymentNotFoundException;
 import am.aua.app.repository.PaymentRepository;

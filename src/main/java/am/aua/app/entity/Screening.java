@@ -1,5 +1,6 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.ScreeningStatusType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -34,5 +35,6 @@ public class Screening {
     private Integer price;
 
     @Column(name = "screening_status", columnDefinition = "screening_status_type not null")
-    private Object screeningStatus;
+    @Enumerated(EnumType.STRING)
+    private ScreeningStatusType screeningStatus;
 }

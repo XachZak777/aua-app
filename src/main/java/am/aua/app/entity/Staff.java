@@ -1,5 +1,6 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.StaffPositionType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -30,5 +31,6 @@ public class Staff {
     private String permissions;
 
     @Column(name = "staff_position", columnDefinition = "staff_position_type not null")
-    private Object staffPosition;
+    @Enumerated(EnumType.STRING)
+    private StaffPositionType staffPosition;
 }

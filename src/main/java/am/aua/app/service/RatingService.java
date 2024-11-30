@@ -1,12 +1,8 @@
 package am.aua.app.service;
 
-import am.aua.app.dto.PaymentRequest;
 import am.aua.app.dto.RatingRequest;
-import am.aua.app.entity.Payment;
 import am.aua.app.entity.Rating;
-import am.aua.app.exception.PaymentNotFoundException;
 import am.aua.app.exception.RatingNotFoundException;
-import am.aua.app.repository.PaymentRepository;
 import am.aua.app.repository.RatingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

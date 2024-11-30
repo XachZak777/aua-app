@@ -13,7 +13,7 @@ public class MovieNotFoundExceptionHandler {
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(MovieNotFoundException.class)
-    public String handleMovieException (MovieNotFoundException e) {
+    public String handleMovieNotFoundException (MovieNotFoundException e) {
         return e.getMessage();
     }
 }

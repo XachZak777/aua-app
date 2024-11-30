@@ -13,7 +13,7 @@ public class AuthorNotFoundExceptionHandler {
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(AuthorNotFoundException.class)
-    public String handleAuthorException (AuthorNotFoundException e) {
+    public String handleAuthorNotFoundException (AuthorNotFoundException e) {
         return e.getMessage();
     }
 }

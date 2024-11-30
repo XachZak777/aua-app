@@ -1,9 +1,7 @@
 package am.aua.app.service;
 
 import am.aua.app.dto.MovieRequest;
-import am.aua.app.entity.Actor;
 import am.aua.app.entity.Movie;
-import am.aua.app.exception.ActorNotFoundException;
 import am.aua.app.exception.MovieNotFoundException;
 import am.aua.app.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;

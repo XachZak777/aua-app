@@ -1,9 +1,10 @@
 package am.aua.app.entity;
 
+import am.aua.app.entity.enums.PaymentStatusType;
+import am.aua.app.entity.enums.ReservationStatusType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-
 import java.time.Instant;
 
 @Entity
@@ -19,7 +20,7 @@ public class Reservation {
     @Column(name = "reservation_id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "screening_id")
     private Screening screening;
 
@@ -34,8 +35,10 @@ public class Reservation {
     private Instant reservationTime;
 
     @Column(name = "status", columnDefinition = "reservation_status_type not null")
-    private Object status;
+    @Enumerated(EnumType.STRING)
+    private ReservationStatusType status;
 
     @Column(name = "payment_status", columnDefinition = "payment_status_type not null")
-    private Object paymentStatus;
+    @Enumerated(EnumType.STRING)
+    private PaymentStatusType paymentStatus;
 }

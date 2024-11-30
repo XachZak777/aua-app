@@ -15,7 +15,7 @@ public class ActorNotFoundExceptionHandler {
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ActorNotFoundException.class)
-    public String handleActorException (ActorNotFoundException e) {
+    public String handleActorNotFoundException (ActorNotFoundException e) {
         return e.getMessage();
     }
 }
