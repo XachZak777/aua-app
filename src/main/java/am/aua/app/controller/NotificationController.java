@@ -1,14 +1,11 @@
 package am.aua.app.controller;
 
-import am.aua.app.dto.MovieHallRequest;
 import am.aua.app.dto.NotificationRequest;
-import am.aua.app.entity.MovieHall;
 import am.aua.app.entity.Notification;
 import am.aua.app.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
